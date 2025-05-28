@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="favicon.png">
   <meta charset="UTF-8" />
   <title>Stratagem Selector</title>
   <link rel="stylesheet" href="style.css" />
@@ -8,17 +9,31 @@
 <body>
   <h1>Helldivers Stratagems</h1>
 
+  <div id="controlRow">
   <input type="text" id="searchBox" placeholder="Search stratagems..." />
+
+  <div id="bulkControls">
+    <button id="allOnBtn">All On</button>
+    <button id="allOffBtn">All Off</button>
+  </div>
 
   <label class="toggle-switch">
     <input type="checkbox" id="showEnabledOnly" />
-    <span class="slider"></span> Show Enabled Only
+    <span class="slider"></span> Enabled Only
+  </label>
+
+  <label class="toggle-switch" id="modeToggleLabel">
+    <input type="checkbox" id="modeToggle" />
+    <span class="slider"></span>
+    <span id="modeToggleText">WASD Mode</span>
   </label>
 
   <label for="categoryFilter">Filter by Category:</label>
   <select id="categoryFilter">
     <option value="">All Categories</option>
   </select>
+</div>
+
 
   <div id="stratagemGrid" class="grid"></div>
 

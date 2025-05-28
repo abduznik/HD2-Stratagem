@@ -2,66 +2,323 @@
   "Machine Gun": {
     "bind": [],
     "state": false,
-    "category": "patriotic_administration_center"
+    "category": "Supply"
   },
   "Anti Material Rifle": {
     "bind": [],
-    "state": true,
-    "category": "patriotic_administration_center"
+    "state": false,
+    "category": "Supply"
   },
   "Stalwart": {
     "bind": [],
-    "state": true,
-    "category": "patriotic_administration_center"
+    "state": false,
+    "category": "Supply"
   },
   "Expendable Anti Tank": {
     "bind": [],
-    "state": true,
-    "category": "patriotic_administration_center"
+    "state": false,
+    "category": "Supply"
   },
   "Recoilless Rifle": {
     "bind": [],
-    "state": true,
-    "category": "patriotic_administration_center"
+    "state": false,
+    "category": "Supply"
   },
   "Flamethrower": {
     "bind": [],
-    "state": true,
-    "category": "patriotic_administration_center"
+    "state": false,
+    "category": "Supply"
   },
   "Autocannon": {
     "bind": [],
-    "state": true,
-    "category": "patriotic_administration_center"
+    "state": false,
+    "category": "Supply"
   },
   "Heavy Machine Gun": {
     "bind": [],
-    "state": true,
-    "category": "patriotic_administration_center"
+    "state": false,
+    "category": "Supply"
   },
   "Airburst Rocket Launcher": {
     "bind": [],
-    "state": true,
-    "category": "patriotic_administration_center"
+    "state": false,
+    "category": "Supply"
   },
   "Commando": {
     "bind": [],
-    "state": true,
-    "category": "patriotic_administration_center"
+    "state": false,
+    "category": "Supply"
   },
   "Railgun": {
     "bind": [],
-    "state": true,
-    "category": "patriotic_administration_center"
+    "state": false,
+    "category": "Supply"
   },
   "Spear": {
     "bind": [],
-    "state": true,
-    "category": "patriotic_administration_center"
+    "state": false,
+    "category": "Supply"
   },
   "WASP": {
     "bind": [],
+    "state": false,
+    "category": "Supply"
+  },
+  "Jump Pack": {
+    "bind": [],
+    "state": false,
+    "category": "Supply"
+  },
+  "Supply Pack": {
+    "bind": [],
+    "state": false,
+    "category": "Supply"
+  },
+  "Guard Dog Rover": {
+    "bind": [],
+    "state": false,
+    "category": "Supply"
+  },
+  "Ballistic Shield Backpack": {
+    "bind": [],
+    "state": false,
+    "category": "Supply"
+  },
+  "Guard Dog": {
+    "bind": [],
+    "state": false,
+    "category": "Supply"
+  },
+  "Grenade Launcher": {
+    "bind": [],
+    "state": false,
+    "category": "Supply"
+  },
+  "Laser Cannon": {
+    "bind": [],
+    "state": false,
+    "category": "Supply"
+  },
+  "Arc Thrower": {
+    "bind": [],
+    "state": false,
+    "category": "Supply"
+  },
+  "Quasar Cannon": {
+    "bind": [],
+    "state": false,
+    "category": "Supply"
+  },
+  "Patriot Exosuit": {
+    "bind": [],
+    "state": false,
+    "category": "Supply"
+  },
+  "Reinforce": {
+    "bind": [],
+    "state": false,
+    "category": "Mission"
+  },
+  "SOS Beacon": {
+    "bind": [],
+    "state": false,
+    "category": "Mission"
+  },
+  "Resupply": {
+    "bind": [],
+    "state": false,
+    "category": "Mission"
+  },
+  "Hellbomb": {
+    "bind": [],
+    "state": false,
+    "category": "Mission"
+  },
+  "SSSD Delivery": {
+    "bind": [],
+    "state": false,
+    "category": "Mission"
+  },
+  "Seismic Probe": {
+    "bind": [],
+    "state": false,
+    "category": "Mission"
+  },
+  "Upload Data": {
+    "bind": [],
+    "state": false,
+    "category": "Mission"
+  },
+  "Eagle Re-arm": {
+    "bind": [],
+    "state": false,
+    "category": "Mission"
+  },
+  "Illumination Flare": {
+    "bind": [],
+    "state": false,
+    "category": "Mission"
+  },
+  "SEAF Artillery": {
+    "bind": [],
+    "state": false,
+    "category": "Mission"
+  },
+  "Super Earth Flag": {
+    "bind": [],
+    "state": false,
+    "category": "Mission"
+  },
+  "HMG Emplacement": {
+    "bind": [],
+    "state": false,
+    "category": "Defensive"
+  },
+  "Shield Generator Relay": {
+    "bind": [],
+    "state": false,
+    "category": "Defensive"
+  },
+  "Tesla Tower": {
+    "bind": [],
+    "state": false,
+    "category": "Defensive"
+  },
+  "Anti-Personnel Minefield": {
+    "bind": [],
+    "state": false,
+    "category": "Defensive"
+  },
+  "Incendiary Mines": {
+    "bind": [],
+    "state": false,
+    "category": "Defensive"
+  },
+  "Machine Sentry": {
+    "bind": [],
+    "state": false,
+    "category": "Defensive"
+  },
+  "Gatling Sentry": {
+    "bind": [],
+    "state": false,
+    "category": "Defensive"
+  },
+  "Mortar Sentry": {
+    "bind": [],
+    "state": false,
+    "category": "Defensive"
+  },
+  "Autocannon Sentry": {
+    "bind": [],
+    "state": false,
+    "category": "Defensive"
+  },
+  "Rocket Sentry": {
+    "bind": [],
+    "state": false,
+    "category": "Defensive"
+  },
+  "EMS Sentry": {
+    "bind": [],
+    "state": false,
+    "category": "Defensive"
+  },
+  "Orbital Gatling Barrage": {
+    "bind": [],
+    "state": false,
+    "category": "Offensive"
+  },
+  "Orbital Airburst Strike": {
+    "bind": [],
+    "state": false,
+    "category": "Offensive"
+  },
+  "Orbital 120mm HE Barrage": {
+    "bind": [],
+    "state": false,
+    "category": "Offensive"
+  },
+  "Orbital 380mm HE Barrage": {
+    "bind": [],
+    "state": false,
+    "category": "Offensive"
+  },
+  "Orbital Walking Barrage": {
+    "bind": [],
+    "state": false,
+    "category": "Offensive"
+  },
+  "Orbital Laser": {
+    "bind": [],
+    "state": false,
+    "category": "Offensive"
+  },
+  "Orbital Rail Cannon Strike": {
+    "bind": [],
+    "state": false,
+    "category": "Offensive"
+  },
+  "Orbital Precision Strike": {
+    "bind": [
+      "x"
+    ],
     "state": true,
-    "category": "patriotic_administration_center"
+    "category": "Offensive"
+  },
+  "Orbital Gas Strike": {
+    "bind": [],
+    "state": false,
+    "category": "Offensive"
+  },
+  "Orbital EMS Strike": {
+    "bind": [],
+    "state": false,
+    "category": "Offensive"
+  },
+  "Orbital Smoke Strike": {
+    "bind": [],
+    "state": false,
+    "category": "Offensive"
+  },
+  "Eagle Strafing Run": {
+    "bind": [],
+    "state": false,
+    "category": "Offensive"
+  },
+  "Eagle Airstrike": {
+    "bind": [],
+    "state": false,
+    "category": "Offensive"
+  },
+  "Eagle Cluster Bomb": {
+    "bind": [],
+    "state": false,
+    "category": "Offensive"
+  },
+  "Eagle Napalm": {
+    "bind": [],
+    "state": false,
+    "category": "Offensive"
+  },
+  "Eagle Smoke Strike": {
+    "bind": [],
+    "state": false,
+    "category": "Offensive"
+  },
+  "Eagle 110mm Rockets": {
+    "bind": [],
+    "state": false,
+    "category": "Offensive"
+  },
+  "Eagle 500kg Bomb": {
+    "bind": [],
+    "state": false,
+    "category": "Offensive"
+  },
+  "settings": {
+    "mode": "wasd",
+    "bind": [],
+    "state": false
   }
 }

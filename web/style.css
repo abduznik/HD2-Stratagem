@@ -12,6 +12,24 @@ input[type="text"] {
   margin: 10px;
 }
 
+#controlRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#controlRow input[type="text"],
+#controlRow select {
+  padding: 5px;
+  font-size: 14px;
+}
+
+#bulkControls button {
+  margin-right: 5px;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -78,6 +96,7 @@ input[type="text"] {
   border-radius: 4px;
   color: #999;
 }
+
 button {
   background-color: #444;
   color: white;
@@ -99,44 +118,54 @@ button:active {
   background-color: #333;
   transform: scale(0.97);
 }
+
+/* Updated toggle-switch style */
 .toggle-switch {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px;
 }
 
 .toggle-switch input {
   opacity: 0;
   width: 0;
   height: 0;
+  position: absolute;
 }
 
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
+  position: relative;
+  width: 40px;
+  height: 20px;
   background-color: #ccc;
-  transition: .4s;
   border-radius: 20px;
+  transition: background-color 0.4s;
+  flex-shrink: 0;
 }
 
-.slider:before {
-  position: absolute;
+.slider::before {
   content: "";
-  height: 16px;
+  position: absolute;
   width: 16px;
+  height: 16px;
   left: 2px;
   bottom: 2px;
   background-color: white;
-  transition: .4s;
   border-radius: 50%;
+  transition: transform 0.4s;
 }
 
 input:checked + .slider {
   background-color: #2196F3;
 }
 
-input:checked + .slider:before {
+input:checked + .slider::before {
   transform: translateX(20px);
+}
+
+/* Optional text next to toggle */
+.toggle-switch .label-text {
+  font-size: 14px;
+  color: white;
 }

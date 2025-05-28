@@ -10,10 +10,26 @@ async function loadStratagems() {
   categories = new Set(
     Object.values(stratagems).map(s => s.category || "Uncategorized")
   );
-
+  
   populateCategoryFilter();
   filterStratagems();
 }
+document.getElementById("allOnBtn").onclick = () => setAllStates(true);
+document.getElementById("allOffBtn").onclick = () => setAllStates(false);
+
+function setAllStates(enabled) {
+  const promises = [];
+
+  for (const [name, data] of Object.entries(stratagems)) {
+    stratagems[name].state = enabled;
+    promises.push(eel.save_bind(name, stratagems[name].bind || [], enabled)());
+  }
+
+  Promise.all(promises).then(() => {
+    filterStratagems(); // Refresh the UI
+  });
+}
+
 
 function populateCategoryFilter() {
   const categoryFilter = document.getElementById("categoryFilter");
@@ -40,7 +56,10 @@ function filterStratagems() {
   const grid = document.getElementById("stratagemGrid");
   grid.innerHTML = "";
 
-  for (const [name, data] of Object.entries(stratagems)) {
+  const stratagemList = Object.entries(stratagems)
+    .filter(([name]) => name !== "settings");
+
+  for (const [name, data] of stratagemList) {
     const { bind, state, category } = normalizeData(data);
 
     if (search && !name.toLowerCase().includes(search)) continue;
@@ -139,6 +158,107 @@ function filterStratagems() {
   }
 }
 
+function renderStratagems(stratagems) {
+  const grid = document.getElementById('stratagemGrid');
+  grid.innerHTML = '';
+
+  Object.entries(stratagems).forEach(([name, data]) => {
+    if (name === "settings") return; // Skip settings
+
+    const { bind, state, category } = normalizeData(data);
+
+    const fileName = name.toLowerCase().replace(/\s+/g, "_");
+    const div = document.createElement("div");
+    div.className = "stratagem";
+
+    const img = document.createElement("img");
+
+    const formats = ["png", "jpg", "webp"];
+    let formatIndex = 0;
+
+    function tryLoadImage() {
+      if (formatIndex >= formats.length) {
+        img.style.display = "none";
+        return;
+      }
+      img.src = `stratagems/${fileName}.${formats[formatIndex]}`;
+      formatIndex++;
+    }
+
+    img.style.objectFit = "contain";
+    img.style.aspectRatio = "1 / 1";
+    img.style.width = "100%";
+    img.style.height = "auto";
+
+    img.alt = name;
+    img.onerror = tryLoadImage;
+    tryLoadImage();
+
+    const title = document.createElement("div");
+    title.className = "title";
+    title.innerText = name;
+
+    const bindDisplay = document.createElement("div");
+    bindDisplay.className = "bind";
+    bindDisplay.innerHTML = bind.length
+      ? `<span class="ctrl-key">Ctrl</span> + ${bind.join(" + ")}`
+      : "No Bind";
+
+    // Toggle switch
+    const toggleLabel = document.createElement("label");
+    toggleLabel.className = "toggle-switch";
+
+    const toggle = document.createElement("input");
+    toggle.type = "checkbox";
+    toggle.checked = state;
+
+    const slider = document.createElement("span");
+    slider.className = "slider";
+
+    toggleLabel.append(toggle, slider);
+
+    toggle.onchange = () => {
+      stratagems[name].state = toggle.checked;
+      eel.save_bind(name, stratagems[name].bind || [], toggle.checked)().then(() => {
+        updateStratagemUI(name);
+      });
+    };
+
+    // Clear button
+    const clearBtn = document.createElement("button");
+    clearBtn.innerText = "Clear";
+    clearBtn.onclick = () => {
+      stratagems[name].bind = [];
+      stratagems[name].state = false;
+      eel.save_bind(name, [], stratagems[name].state)().then(() => {
+        updateStratagemUI(name);
+      });
+    };
+
+    const controls = document.createElement("div");
+    controls.className = "stratagem-controls";
+    controls.append(toggleLabel, clearBtn);
+
+    div.appendChild(img);
+    div.appendChild(title);
+    div.appendChild(bindDisplay);
+    div.appendChild(controls);
+
+    div.onclick = (e) => {
+      if (
+        e.target.closest("button") ||
+        e.target.closest("input") ||
+        e.target.closest("label.toggle-switch")
+      ) {
+        return;
+      }
+      openBindModal(name);
+    };
+
+    grid.appendChild(div);
+  });
+}
+
 function updateStratagemUI(name) {
   const stratDiv = [...document.querySelectorAll(".stratagem")].find(div =>
     div.querySelector(".title").innerText === name
@@ -211,5 +331,30 @@ const categoryFilterElem = document.getElementById("categoryFilter");
 if (categoryFilterElem) {
   categoryFilterElem.addEventListener("change", filterStratagems);
 }
+
+document.addEventListener('DOMContentLoaded', async function() {
+  const modeToggle = document.getElementById('modeToggle');
+  const modeToggleText = document.getElementById('modeToggleText');
+
+  // Set toggle based on saved mode
+  const savedMode = await eel.get_mode()();
+  if (savedMode === 'arrows') {
+    modeToggle.checked = true;
+    modeToggleText.textContent = 'Arrows Mode';
+  } else {
+    modeToggle.checked = false;
+    modeToggleText.textContent = 'WASD Mode';
+  }
+
+  modeToggle.addEventListener('change', function() {
+    if (modeToggle.checked) {
+      modeToggleText.textContent = 'Arrows Mode';
+      eel.set_mode('arrows');
+    } else {
+      modeToggleText.textContent = 'WASD Mode';
+      eel.set_mode('wasd');
+    }
+  });
+});
 
 loadStratagems();
