@@ -1,22 +1,51 @@
 let stratagems = {};
 let currentStratagem = "";
 let currentBind = [];
+let categories = new Set();
 
 async function loadStratagems() {
   stratagems = await eel.get_stratagems()();
+
+  // Extract unique categories from the stratagem data
+  categories = new Set(
+    Object.values(stratagems).map(s => s.category || "Uncategorized")
+  );
+
+  populateCategoryFilter();
   filterStratagems();
+}
+
+function populateCategoryFilter() {
+  const categoryFilter = document.getElementById("categoryFilter");
+  if (!categoryFilter) return; // In case the element is missing
+
+  // Clear previous options except the first ("All Categories")
+  categoryFilter.querySelectorAll("option:not(:first-child)").forEach(opt => opt.remove());
+
+  // Add sorted category options
+  Array.from(categories)
+    .sort()
+    .forEach(cat => {
+      const option = document.createElement("option");
+      option.value = cat;
+      option.textContent = cat.replace(/_/g, " "); // Optional: beautify category text
+      categoryFilter.appendChild(option);
+    });
 }
 
 function filterStratagems() {
   const search = document.getElementById("searchBox").value.toLowerCase();
   const showEnabled = document.getElementById("showEnabledOnly").checked;
+  const selectedCategory = document.getElementById("categoryFilter")?.value || "";
   const grid = document.getElementById("stratagemGrid");
   grid.innerHTML = "";
 
   for (const [name, data] of Object.entries(stratagems)) {
-    const { bind, state } = normalizeData(data);
+    const { bind, state, category } = normalizeData(data);
+
     if (search && !name.toLowerCase().includes(search)) continue;
     if (showEnabled && !state) continue;
+    if (selectedCategory && category !== selectedCategory) continue;
 
     const fileName = name.toLowerCase().replace(/\s+/g, "_");
     const div = document.createElement("div");
@@ -80,6 +109,7 @@ function filterStratagems() {
     clearBtn.innerText = "Clear";
     clearBtn.onclick = () => {
       stratagems[name].bind = [];
+      stratagems[name].state = false;
       eel.save_bind(name, [], stratagems[name].state)().then(() => {
         updateStratagemUI(name);
       });
@@ -132,12 +162,11 @@ function updateStratagemUI(name) {
 }
 
 function normalizeData(data) {
-  if (Array.isArray(data)) {
-    return { bind: data, state: true };
-  }
+  // Provide defaults for missing properties including category
   return {
     bind: Array.isArray(data.bind) ? data.bind : [],
     state: typeof data.state === "boolean" ? data.state : true,
+    category: typeof data.category === "string" ? data.category : "Uncategorized",
   };
 }
 
@@ -176,5 +205,11 @@ document.addEventListener("keydown", (e) => {
 
 document.getElementById("searchBox").addEventListener("input", filterStratagems);
 document.getElementById("showEnabledOnly").addEventListener("change", filterStratagems);
+
+// Add event listener for category filter dropdown
+const categoryFilterElem = document.getElementById("categoryFilter");
+if (categoryFilterElem) {
+  categoryFilterElem.addEventListener("change", filterStratagems);
+}
 
 loadStratagems();

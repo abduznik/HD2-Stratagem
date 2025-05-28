@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Stratagem Selector</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>Helldivers Stratagems</h1>
 
-  <input type="text" id="searchBox" placeholder="Search stratagems...">
+  <input type="text" id="searchBox" placeholder="Search stratagems..." />
+
   <label class="toggle-switch">
-    <input type="checkbox" id="showEnabledOnly">
+    <input type="checkbox" id="showEnabledOnly" />
     <span class="slider"></span> Show Enabled Only
   </label>
+
+  <label for="categoryFilter">Filter by Category:</label>
+  <select id="categoryFilter">
+    <option value="">All Categories</option>
+  </select>
 
   <div id="stratagemGrid" class="grid"></div>
 

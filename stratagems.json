@@ -1,14 +1,67 @@
 {
-  "Orbital Barrage": {
-    "bind": [],
-    "state": false
-  },
   "Machine Gun": {
     "bind": [],
-    "state": true
+    "state": false,
+    "category": "patriotic_administration_center"
   },
-  "Shield Generator": {
+  "Anti Material Rifle": {
     "bind": [],
-    "state": true
+    "state": true,
+    "category": "patriotic_administration_center"
+  },
+  "Stalwart": {
+    "bind": [],
+    "state": true,
+    "category": "patriotic_administration_center"
+  },
+  "Expendable Anti Tank": {
+    "bind": [],
+    "state": true,
+    "category": "patriotic_administration_center"
+  },
+  "Recoilless Rifle": {
+    "bind": [],
+    "state": true,
+    "category": "patriotic_administration_center"
+  },
+  "Flamethrower": {
+    "bind": [],
+    "state": true,
+    "category": "patriotic_administration_center"
+  },
+  "Autocannon": {
+    "bind": [],
+    "state": true,
+    "category": "patriotic_administration_center"
+  },
+  "Heavy Machine Gun": {
+    "bind": [],
+    "state": true,
+    "category": "patriotic_administration_center"
+  },
+  "Airburst Rocket Launcher": {
+    "bind": [],
+    "state": true,
+    "category": "patriotic_administration_center"
+  },
+  "Commando": {
+    "bind": [],
+    "state": true,
+    "category": "patriotic_administration_center"
+  },
+  "Railgun": {
+    "bind": [],
+    "state": true,
+    "category": "patriotic_administration_center"
+  },
+  "Spear": {
+    "bind": [],
+    "state": true,
+    "category": "patriotic_administration_center"
+  },
+  "WASP": {
+    "bind": [],
+    "state": true,
+    "category": "patriotic_administration_center"
   }
 }
