@@ -10,10 +10,13 @@ def get_stratagems():
         return json.load(f)
 
 @eel.expose
-def save_bind(name, keys):
+def save_bind(name, keys, state):
     with open("stratagems.json", "r") as f:
         data = json.load(f)
-    data[name] = keys
+    data[name] = {
+    	"bind": keys,
+    	"state": state
+    }
     with open("stratagems.json", "w") as f:
         json.dump(data, f, indent=2)
 

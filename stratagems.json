@@ -1,5 +1,14 @@
 {
-  "Orbital Barrage": [],
-  "Machine Gun": ["up", "down", "left"],
-  "Shield Generator": ["right", "down", "left"]
+  "Orbital Barrage": {
+    "bind": [],
+    "state": false
+  },
+  "Machine Gun": {
+    "bind": [],
+    "state": true
+  },
+  "Shield Generator": {
+    "bind": [],
+    "state": true
+  }
 }
