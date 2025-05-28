@@ -1,0 +1,80 @@
+body {
+  background-color: #121212;
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+input[type="text"] {
+  width: 300px;
+  padding: 8px;
+  margin: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.stratagem {
+  background: #222;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.stratagem:hover {
+  background: #333;
+  transform: scale(1.05);
+}
+
+.stratagem img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 4px;
+  background: #444;
+}
+
+.stratagem .title {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.stratagem .bind {
+  font-size: 13px;
+  color: #bbb;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.ctrl-key {
+  background: #444;
+  padding: 5px 10px;
+  margin: 0 5px;
+  border-radius: 4px;
+  color: #999;
+}

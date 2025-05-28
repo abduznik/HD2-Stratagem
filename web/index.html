@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stratagem Selector</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Helldivers Stratagems</h1>
+  <input type="text" id="searchBox" placeholder="Search stratagems...">
+  <label><input type="checkbox" id="showEnabledOnly"> Show Enabled Only</label>
+
+  <div id="stratagemGrid" class="grid"></div>
+
+  <div id="bindModal" class="modal hidden">
+    <div class="modal-content">
+      <h2 id="modalTitle"></h2>
+      <p>Press keys after Ctrl:</p>
+      <div id="bindPreview"><span class="ctrl-key">Ctrl</span></div>
+      <button id="saveBtn">Save</button>
+      <button onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="/eel.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

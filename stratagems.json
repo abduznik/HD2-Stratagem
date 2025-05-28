@@ -1,0 +1,5 @@
+{
+  "Orbital Barrage": [],
+  "Machine Gun": ["up", "down", "left"],
+  "Shield Generator": ["right", "down", "left"]
+}
